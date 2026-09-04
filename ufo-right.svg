@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="400 0 400 300" width="400" height="300">
+  <defs>
+    <linearGradient id="metal" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#3a4250"/>
+      <stop offset="1" stop-color="#0c1018"/>
+    </linearGradient>
+  </defs>
+  <!-- space through the windshield -->
+  <path d="M0,0 H800 V115 Q400,175 0,115 Z" fill="#05060a"/>
+  <circle cx="60" cy="30" r="2" fill="#ffffff" opacity="0.9"/><circle cx="150" cy="62" r="1" fill="#ffffff" opacity="0.9"/><circle cx="250" cy="24" r="1" fill="#ffffff" opacity="0.9"/><circle cx="330" cy="72" r="2" fill="#ffffff" opacity="0.9"/><circle cx="470" cy="34" r="1" fill="#ffffff" opacity="0.9"/><circle cx="560" cy="66" r="1" fill="#ffffff" opacity="0.9"/><circle cx="680" cy="28" r="2" fill="#ffffff" opacity="0.9"/><circle cx="740" cy="58" r="1" fill="#ffffff" opacity="0.9"/><circle cx="110" cy="92" r="1" fill="#ffffff" opacity="0.9"/><circle cx="400" cy="44" r="2" fill="#ffffff" opacity="0.9"/><circle cx="620" cy="96" r="1" fill="#ffffff" opacity="0.9"/><circle cx="210" cy="104" r="1" fill="#ffffff" opacity="0.9"/><circle cx="700" cy="90" r="2" fill="#ffffff" opacity="0.9"/><circle cx="300" cy="50" r="1" fill="#ffffff" opacity="0.9"/>
+  <circle cx="640" cy="70" r="16" fill="#c98a5a" opacity="0.85"/>
+  <!-- dashboard -->
+  <path d="M0,115 Q400,175 800,115 V300 H0 Z" fill="url(#metal)"/>
+  <path d="M0,115 Q400,175 800,115" fill="none" stroke="#6b7787" stroke-width="4"/>
+  <path d="M0,152 Q400,208 800,152" fill="none" stroke="#0a0d13" stroke-width="3" opacity="0.6"/>
+  <!-- center console (split by the seam) -->
+  <rect x="380" y="150" width="40" height="150" fill="#1a1f28" stroke="#455063" stroke-width="2"/>
+  <circle cx="400" cy="175" r="5" fill="#ff5555"/>
+  <circle cx="400" cy="200" r="5" fill="#ffd23f"/>
+  <circle cx="400" cy="225" r="5" fill="#35f07a"/>
+  <!-- LEFT button: BACK -->
+  <ellipse cx="185" cy="232" rx="95" ry="50" fill="#29e0e6" opacity="0.12"/>
+  <rect x="110" y="197" width="150" height="72" rx="14" fill="#121821" stroke="#29e0e6" stroke-width="3"/>
+  <polygon points="155,227 185,212 185,242" fill="#29e0e6"/>
+  <text x="185" y="262" fill="#29e0e6" font-family="sans-serif" font-size="18" font-weight="bold" text-anchor="middle">BACK</text>
+  <!-- RIGHT button: NEXT -->
+  <ellipse cx="615" cy="232" rx="95" ry="50" fill="#35f07a" opacity="0.12"/>
+  <rect x="540" y="197" width="150" height="72" rx="14" fill="#121821" stroke="#35f07a" stroke-width="3"/>
+  <polygon points="645,227 615,212 615,242" fill="#35f07a"/>
+  <text x="615" y="262" fill="#35f07a" font-family="sans-serif" font-size="18" font-weight="bold" text-anchor="middle">NEXT</text>
+</svg>
