@@ -23,7 +23,22 @@
   <img src="mercury.jpg" alt="Mercury">
 
   <p style="color: white; font-size: 40px;">Mercury is the smallest planet in the Solar System and the closest to the Sun. It has almost no atmosphere, so it swings from scorching hot in the day to freezing cold at night.</p>
+<p style="color: white; font-size: 40px;">Mercury's days are longer than its years! One Mercury day is about 176 Earth days. While Mercury orbits the Sun in 88 earth days.</p>
 
-  <p style="margin-bottom: 1000px; color: white; font-size: 40px;">Scroll down about 31 million miles to reach Venus...</p>
+
+  <button onclick="findage()">Find My Age in Mercury Years</button>
+  <script>
+    function findage() {
+      //lets see how old you are in Mercury years
+      //enter your age in Earth years and it will calculate your age in Mercury years
+      const ageInEarthYears = prompt("Enter your age in Earth years:");
+      const mercuryYearInEarthYears = 0.24; // Mercury year in Earth years
+      const ageInMercuryYears = ageInEarthYears / mercuryYearInEarthYears;
+      alert(`You are ${ageInMercuryYears.toFixed(2)} Mercury years old.`);
+    }
+  </script>
+
+  <p style="color: white; font-size: 40px;">where do you want to go? Click back for the sun or forward for Venus!</p>
+  <div style="display:flex; max-width:760px; margin:0 auto;"><a href="SUN.html" style="flex:1"><img src="ufo-left.svg" alt="Go back" style="width:100%; height:auto; display:block;"></a><a href="venus.html" style="flex:1"><img src="ufo-right.svg" alt="Go to the next place" style="width:100%; height:auto; display:block;"></a></div>
 </body>
 </html>
