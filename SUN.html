@@ -24,7 +24,40 @@
 
   <p style="color: white; font-size: 40px; text-align: center;">The Sun is the star at the center of the Solar System. It is a nearly perfect sphere of hot plasma, heated to incandescence by nuclear fusion reactions in its core, radiating the energy mainly as light, ultraviolet, and infrared radiation. It is by far the most important source of energy for life on Earth.</p>
   
-  <p style="color: white; font-size: 40px; text-align: center;">Back in the UFO. Where to?</p>
-  <div style="display:flex; max-width:760px; margin:0 auto;"><a href="SolarSystem.html" style="flex:1"><img src="ufo-left.svg" alt="Go back" style="width:100%; height:auto; display:block;"></a><a href="mercury.html" style="flex:1"><img src="ufo-right.svg" alt="Go to the next place" style="width:100%; height:auto; display:block;"></a></div>
-  <body>
+
+  <p style="color: white; font-size: 40px; text-align: center;">Click the button below to see how far we are from home with different modes of transportation:</p>
+<button onclick="findDistance(this)">Space Ship</button>
+<button onclick="findDistance(this)">Commercial Airplane</button>
+<button onclick="findDistance(this)">Light</button>
+
+<script>
+  // how far we are from home with different modes of transportation
+  const distanceToEarth = 93000000;            // miles (Sun to Earth)
+  const speedOfSpaceShip = 25000;              // mph (fastest spacecraft today)
+  const speedOfCommercialAirplane = 600;       // mph
+  const speedOfLight = 670616629;              // mph
+
+  function findDistance(button) {
+    // pick the speed based on which button was clicked
+    let speed;
+    if (button.innerHTML === 'Space Ship') {
+      speed = speedOfSpaceShip;
+    } else if (button.innerHTML === 'Commercial Airplane') {
+      speed = speedOfCommercialAirplane;
+    } else {
+      speed = speedOfLight;
+    }
+
+    const timeToEarthInHours = distanceToEarth / speed;
+    const timeToEarthInDays = timeToEarthInHours / 24;
+    const timeToEarthInYears = timeToEarthInDays / 365;
+
+    alert(
+      `By ${button.innerHTML}:\n` +
+      `${Math.round(timeToEarthInDays).toLocaleString()} days ` +
+      `(about ${timeToEarthInYears.toFixed(1)} years) to reach Earth.`
+    );
+  }
+</script>
+  </script>
 </html>
