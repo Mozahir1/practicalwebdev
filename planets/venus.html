@@ -16,17 +16,84 @@
       background-repeat: repeat;
       background-size: 350px 350px;
     }
+
+    .planet-row { display: flex; flex-wrap: wrap; justify-content: center; gap: 40px 80px; margin: 40px 0 20px; }
+    .planet-box { text-align: center; color: white; font-size: 20px; }
+    .planet {
+      width: 240px; height: 240px; border-radius: 50%; overflow: hidden; position: relative;
+      margin: 0 auto 10px;
+      box-shadow: 0 0 40px rgba(255, 200, 120, 0.35);
+    }
+    .clouds {
+      position: absolute; top: 0; left: 0; width: 200%; height: 100%;
+      background-size: 50% 100%; background-repeat: repeat-x;
+      animation: drift 3s linear infinite paused;
+    }
+    .venus .clouds {
+      background-image:
+        radial-gradient(50px 16px at 18% 22%, #fff7d6, transparent),
+        radial-gradient(34px 12px at 30% 30%, #fffbe8, transparent),
+        radial-gradient(70px 14px at 62% 38%, #8a4a12, transparent),
+        radial-gradient(40px 10px at 78% 30%, #6e3a0c, transparent),
+        radial-gradient(60px 20px at 38% 62%, #fff1c2, transparent),
+        radial-gradient(26px 26px at 55% 55%, #7a3f0e, transparent),
+        radial-gradient(80px 14px at 86% 78%, #7a3f0e, transparent),
+        radial-gradient(44px 12px at 12% 82%, #fff7d6, transparent),
+        repeating-linear-gradient(180deg, rgba(120, 70, 20, 0.35) 0 6px, transparent 6px 18px),
+        linear-gradient(180deg, #e8b868, #d9a24f 40%, #e6c07a 70%, #c98f3f);
+    }
+    .earthlike .clouds {
+      background-image:
+        radial-gradient(52px 30px at 18% 30%, #1f7a2e, transparent),
+        radial-gradient(30px 18px at 28% 42%, #c9b46a, transparent),
+        radial-gradient(70px 34px at 68% 62%, #1f7a2e, transparent),
+        radial-gradient(34px 16px at 80% 52%, #c9b46a, transparent),
+        radial-gradient(60px 10px at 45% 45%, #ffffff, transparent),
+        radial-gradient(44px 8px at 10% 74%, #ffffff, transparent),
+        radial-gradient(50px 8px at 88% 24%, #ffffff, transparent),
+        linear-gradient(180deg, #2f6fcf, #2a5db0);
+    }
+    /* Venus surface moves right to left (retrograde), most planets left to right */
+    .venus .clouds { animation-name: drift-retrograde; }
+    .earthlike .clouds { animation-name: drift-prograde; }
+    .spinning .clouds { animation-play-state: running; }
+    .planet::after {
+      content: ""; position: absolute; inset: 0; border-radius: 50%;
+      background: radial-gradient(circle at 30% 30%, transparent 30%, rgba(0, 0, 0, 0.75) 100%);
+    }
+    @keyframes drift-retrograde { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+    @keyframes drift-prograde { from { transform: translateX(-50%); } to { transform: translateX(0); } }
+
   </style>
 </head>
 <body>
   <p style="color: white; font-size: 40px;">Its Venus!</p>
-  <img src="venus.jpg" alt="Venus">
+  <div class="planet-row" id="planet-row">
+    <div class="planet-box">
+      <div class="planet venus"><div class="clouds"></div></div>
+      Venus: spins backwards &larr;
+    </div>
+    <div class="planet-box">
+      <div class="planet earthlike"><div class="clouds"></div></div>
+      Most planets: spin &rarr;
+    </div>
+  </div>
+  <div style="text-align: center;"><button onclick="toggleSpin()">Spin the planets</button></div>
+  <script>
+    // Spin button: this is the only JavaScript on the Venus page.
+    // The spinning itself is done by the CSS animations (.clouds in the style block);
+    // here we just toggle the "spinning" class on the row holding both planets.
+    // With the class on, the animations run. With it off, they are paused.
+    function toggleSpin() {
+      document.getElementById('planet-row').classList.toggle('spinning');
+    }
+  </script>
 
   <p style="color: white; font-size: 40px;">Venus is the second planet from the Sun and the hottest planet in the Solar System, thanks to a thick atmosphere of carbon dioxide that traps heat. It also spins backwards compared to most planets.</p>
 
   <p style="margin-bottom: 1000px; color: white; font-size: 40px;">Scroll down about 26 million miles to reach Earth...</p>
 
   <p style="color: white; font-size: 40px;">Okay lets hyperdrive! Into the UFO!!</p>
-  <div style="display:flex; max-width:760px; margin:0 auto;"><a href="mercury.html" style="flex:1"><img src="ufo-left.svg" alt="Go back" style="width:100%; height:auto; display:block;"></a><a href="earth.html" style="flex:1"><img src="ufo-right.svg" alt="Go to the next place" style="width:100%; height:auto; display:block;"></a></div>
+  <div style="display:flex; max-width:760px; margin:0 auto;"><a href="mercury.html" style="flex:1"><img src="../images/ufo-left.svg" alt="Go back" style="width:100%; height:auto; display:block;"></a><a href="earth.html" style="flex:1"><img src="../images/ufo-right.svg" alt="Go to the next place" style="width:100%; height:auto; display:block;"></a></div>
 </body>
 </html>

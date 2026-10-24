@@ -20,13 +20,26 @@
 </head>
 <body>
   <p style="color: white; font-size: 40px;">Its Earth! Home sweet home.</p>
-  <img src="earth.jpg" alt="Earth">
+  <img src="../images/earth.jpg" alt="Earth">
 
   <p style="color: white; font-size: 40px;">Earth is the third planet from the Sun and the only place we know of with life. It has liquid water covering most of its surface and an atmosphere that protects us and keeps us breathing.</p>
-
-  <p style="margin-bottom: 1000px; color: white; font-size: 40px;">Scroll down about 49 million miles to reach Mars...</p>
+  <p style="color: white; font-size: 40px;">I wonder what the weathers like today!</p>
+  <button onclick="findweather()">Find weather</button>
+  <script>
+    // Weather calculator: runs when the button above is clicked.
+    function findweather() {
+      //lets see what the weather is like today
+      //enter your location and it will calculate the weather
+      const location = prompt("Enter your location:");
+      // This is a placeholder - in a real application, you would integrate with a weather API
+      alert(`The weather in ${location} is currently sunny with a temperature of 75°F.`);
+    }
+  </script>
+  <p style="margin-bottom: 1000px; color: white; font-size: 40px;">Scroll down about 239,000 miles to reach the Moon...</p>
+  <p style="color: white; font-size: 40px;">Okay lets hyperdrive! Into the UFO!!</p>
+  <p style="margin-bottom: 1000px; color: white; font-size: 40px;">Scroll down about 239,000 miles to reach the Moon...</p>
 
   <p style="color: white; font-size: 40px;">Okay lets hyperdrive! Into the UFO!!</p>
-  <div style="display:flex; max-width:760px; margin:0 auto;"><a href="venus.html" style="flex:1"><img src="ufo-left.svg" alt="Go back" style="width:100%; height:auto; display:block;"></a><a href="mars.html" style="flex:1"><img src="ufo-right.svg" alt="Go to the next place" style="width:100%; height:auto; display:block;"></a></div>
+  <div style="display:flex; max-width:760px; margin:0 auto;"><a href="venus.html" style="flex:1"><img src="../images/ufo-left.svg" alt="Go back" style="width:100%; height:auto; display:block;"></a><a href="moon.html" style="flex:1"><img src="../images/ufo-right.svg" alt="Go to the next place" style="width:100%; height:auto; display:block;"></a></div>
 </body>
 </html>

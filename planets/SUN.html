@@ -18,19 +18,23 @@
     <meta charset="utf-8">
     <title>SUN</title>
   </head>
+<body>
   <h1 style="color: white; font-size: 40px; text-align: center;">Its really hot here...</h1>
   <h2 style="color: white; font-size: 20px; text-align: center;">If you can bear the heat, scroll down to learn more about the Sun:</h2>
-  <img src="sunsurface.webp" alt="Sun surface" style="display: block; margin-left: auto; margin-right: auto;" img size="500px" width="750px" height="500px">
+  <img src="../images/sunsurface.webp" alt="Sun surface" style="display: block; margin-left: auto; margin-right: auto;" img size="500px" width="750px" height="500px">
 
   <p style="color: white; font-size: 40px; text-align: center;">The Sun is the star at the center of the Solar System. It is a nearly perfect sphere of hot plasma, heated to incandescence by nuclear fusion reactions in its core, radiating the energy mainly as light, ultraviolet, and infrared radiation. It is by far the most important source of energy for life on Earth.</p>
   
 
   <p style="color: white; font-size: 40px; text-align: center;">Click the button below to see how far we are from home with different modes of transportation:</p>
-<button onclick="findDistance(this)">Space Ship</button>
-<button onclick="findDistance(this)">Commercial Airplane</button>
-<button onclick="findDistance(this)">Light</button>
+<p style="color: white; font-size: 40px; text-align: center;">
+  <button onclick="findDistance(this)">Space Ship</button>
+  <button onclick="findDistance(this)">Commercial Airplane</button>
+  <button onclick="findDistance(this)">Light</button>
+</p>
 
 <script>
+  // Travel time calculator: runs when one of the three buttons above is clicked.
   // how far we are from home with different modes of transportation
   const distanceToEarth = 93000000;            // miles (Sun to Earth)
   const speedOfSpaceShip = 25000;              // mph (fastest spacecraft today)
@@ -48,20 +52,36 @@
       speed = speedOfLight;
     }
 
-    const timeToEarthInHours = distanceToEarth / speed;
-    const timeToEarthInDays = timeToEarthInHours / 24;
-    const timeToEarthInYears = timeToEarthInDays / 365;
+    // time = distance / speed (in hours, since speeds are in miles per hour)
+    const timeInHours = distanceToEarth / speed;
 
-    alert(
-      `By ${button.innerHTML}:\n` +
-      `${Math.round(timeToEarthInDays).toLocaleString()} days ` +
-      `(about ${timeToEarthInYears.toFixed(1)} years) to reach Earth.`
-    );
+    // show a single unit, the largest one that makes sense
+    const minutes = timeInHours * 60;
+    const days = timeInHours / 24;
+    const years = days / 365.25;
+
+    let timeText;
+    if (years >= 1) {
+      timeText = `${years.toFixed(1)} years`;
+    } else if (days >= 1) {
+      timeText = `${Math.round(days).toLocaleString()} days`;
+    } else if (timeInHours >= 1) {
+      timeText = `${timeInHours.toFixed(1)} hours`;
+    } else {
+      timeText = `${minutes.toFixed(1)} minutes`;
+    }
+
+    // pop up the result using only the one unit chosen above
+    alert(`By ${button.innerHTML}:\nIt takes about ${timeText} to reach Earth.`);
   }
-</script>
   </script>
+<p style="margin-bottom: 1000px; color: white; font-size: 40px; text-align: center;">Scroll down only about ~36 million miles to see Mercury!!</p>
 
-  <h1 style="color: white; font-size: 40px; text-align: center;">Luckily we got a UFO that will take us anywhere instantly! Select if you would like to go back or go to mercury:</h1>
-    <div style="display:flex; max-width:760px; margin:0 auto;"><a href="solarsystem.html" style="flex:1"><img src="ufo-left.svg" alt="Go back" style="width:100%; height:auto; display:block;"></a><a href="mercury.html" style="flex:1"><img src="ufo-right.svg" alt="Go to the next place" style="width:100%; height:auto; display:block;"></a></div>
+<p style="margin-bottom: 3000px; color: white; font-size: 40px; text-align: center;"> Keep going... </p>
 
+<p style="margin-bottom: 1000px; color: white; font-size: 40px; text-align: center;"> Only about 3 more light minutes!! </p>
+
+  <p style="color: white; font-size: 40px; text-align: center;">Uhh... lets just break the rules of physics! And Hyperdrive! Choose if you want to go back to the Solar System or to Mercury!</p>
+  <div style="display:flex; max-width:760px; margin:0 auto;"><a href="../index.html" style="flex:1"><img src="../images/ufo-left.svg" alt="Go back" style="width:100%; height:auto; display:block;"></a><a href="mercury.html" style="flex:1"><img src="../images/ufo-right.svg" alt="Go to the next place" style="width:100%; height:auto; display:block;"></a></div>
+</body>
 </html>
