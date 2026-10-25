@@ -3,29 +3,22 @@
 <head>
   <meta charset="utf-8">
   <title>Mercury</title>
+  <link rel="stylesheet" href="../css/style.css">
   <style>
-    body {
-      background-color: black;
-      background-image:
-        radial-gradient(1px 1px at 25px 40px, white, transparent),
-        radial-gradient(1px 1px at 120px 90px, white, transparent),
-        radial-gradient(2px 2px at 200px 150px, #cfe8ff, transparent),
-        radial-gradient(1px 1px at 90px 200px, white, transparent),
-        radial-gradient(1px 1px at 160px 30px, #fff3c4, transparent),
-        radial-gradient(1px 1px at 300px 120px, white, transparent);
-      background-repeat: repeat;
-      background-size: 350px 350px;
-    }
+    :root { --bg: #111111; --accent: #bdbdbd; --font: 'Courier New', monospace; }
   </style>
 </head>
 <body>
-  <p style="color: white; font-size: 40px;">Its Mercury!</p>
+  <nav><a href="../index.html">Home</a> <a href="SUN.html">Sun</a> <a href="mercury.html">Mercury</a> <a href="venus.html">Venus</a> <a href="earth.html">Earth</a> <a href="moon.html">Moon</a> <a href="mars.html">Mars</a> <a href="jupiter.html">Jupiter</a> <a href="saturn.html">Saturn</a> <a href="uranus.html">Uranus</a> <a href="neptune.html">Neptune</a></nav>
+  <h1>Its Mercury!</h1>
   <img src="../images/mercury.jpg" alt="Mercury">
 
   <p style="color: white; font-size: 40px;">Mercury is the smallest planet in the Solar System and the closest to the Sun. It has almost no atmosphere, so it swings from scorching hot in the day to freezing cold at night.</p>
 <p style="color: white; font-size: 40px;">Mercury's days are longer than its years! One Mercury day is about 176 Earth days. While Mercury orbits the Sun in 88 earth days.</p>
 
 
+  <h2>Quick facts</h2>
+  <ul class="facts"><li>Mercury is about 3,030 miles (4,880 km) across, a little bigger than our Moon.</li><li>It is about 36 million miles from the Sun.</li><li>One year is 88 Earth days, and one day is 176 Earth days.</li><li>Temperatures swing from about 800°F (430°C) in the day to -290°F (-180°C) at night.</li><li>It has no moons.</li></ul>
   <button onclick="findage()">Find My Age in Mercury Years</button>
   <script>
     // Age calculator: runs when the button above is clicked.

@@ -3,30 +3,39 @@
 <head>
   <meta charset="utf-8">
   <title>Mars</title>
+  <link rel="stylesheet" href="../css/style.css">
   <style>
-    body {
-      background-color: black;
-      background-image:
-        radial-gradient(1px 1px at 25px 40px, white, transparent),
-        radial-gradient(1px 1px at 120px 90px, white, transparent),
-        radial-gradient(2px 2px at 200px 150px, #cfe8ff, transparent),
-        radial-gradient(1px 1px at 90px 200px, white, transparent),
-        radial-gradient(1px 1px at 160px 30px, #fff3c4, transparent),
-        radial-gradient(1px 1px at 300px 120px, white, transparent);
-      background-repeat: repeat;
-      background-size: 350px 350px;
-    }
+    :root { --bg: #240800; --accent: #ff7043; --font: 'Courier New', monospace; }
+    .planet { background: radial-gradient(60px 18px at 50% 4%, #fff, transparent), radial-gradient(34px 20px at 60% 55%, rgba(80,20,5,0.7), transparent),
+      radial-gradient(26px 14px at 30% 62%, rgba(80,20,5,0.6), transparent), radial-gradient(circle at 35% 30%, #f08a5d, #c1440e 60%, #6b200a); }
+    dialog { font-size: 22px; max-width: 500px; background: #240800; color: white; border: 3px solid #ff7043; }
   </style>
 </head>
 <body>
-  <p style="color: white; font-size: 40px;">Its Mars! The red planet.</p>
-  <img src="../images/mars.jpg" alt="Mars">
+  <nav><a href="../index.html">Home</a> <a href="SUN.html">Sun</a> <a href="mercury.html">Mercury</a> <a href="venus.html">Venus</a> <a href="earth.html">Earth</a> <a href="moon.html">Moon</a> <a href="mars.html">Mars</a> <a href="jupiter.html">Jupiter</a> <a href="saturn.html">Saturn</a> <a href="uranus.html">Uranus</a> <a href="neptune.html">Neptune</a></nav>
+  <h1>Its Mars! The red planet.</h1>
+  <div class="planet" role="img" aria-label="Mars"></div>
+  <div style="text-align: center;"><button onclick="openFacts()">Mars fun facts</button></div>
+  <dialog id="facts">
+    <p>Olympus Mons is about 16 miles (25 km) high, nearly three times taller than Mount Everest.</p>
+    <p>Valles Marineris is a canyon about 2,500 miles long, as long as the United States is wide.</p>
+    <p>Mars has giant dust storms that can cover the whole planet.</p>
+    <button onclick="closeFacts()">Close</button>
+  </dialog>
 
-  <p style="color: white; font-size: 40px;">Mars is the fourth planet from the Sun. Its rusty red color comes from iron oxide in the soil. It has the tallest volcano and the biggest canyon in the Solar System, and we have sent rovers there to explore.</p>
+  <p class="t">Mars is the fourth planet from the Sun. Its rusty red color comes from iron oxide in the soil. It has the tallest volcano and the biggest canyon in the Solar System, and we have sent rovers there to explore.</p>
+  <h2>Quick facts</h2>
+  <ul class="facts"><li>Mars is about 4,200 miles (6,800 km) across, about half of Earth's width.</li><li>It is about 142 million miles from the Sun.</li><li>One day is about 24 hours 37 minutes and one year is 687 Earth days.</li><li>It has 2 small moons, Phobos and Deimos.</li><li>The average temperature is about -80°F (-60°C).</li></ul>
 
-  <p style="margin-bottom: 2000px; color: white; font-size: 40px;">Scroll down through a whole lot of rocks to reach the Asteroid Belt...</p>
+  <script>
+    // Fun facts pop-up: opens and closes the <dialog> element above.
+    function openFacts() { document.getElementById('facts').showModal(); }
+    function closeFacts() { document.getElementById('facts').close(); }
+  </script>
 
-  <p style="color: white; font-size: 40px;">Okay lets hyperdrive! Into the UFO!!</p>
+  <p class="t" style="margin-bottom: 2000px;">Scroll down through a whole lot of rocks to reach the Asteroid Belt...</p>
+
+  <p class="t">Okay lets hyperdrive! Into the UFO!!</p>
   <div style="display:flex; max-width:760px; margin:0 auto;"><a href="moon.html" style="flex:1"><img src="../images/ufo-left.svg" alt="Go back" style="width:100%; height:auto; display:block;"></a><a href="jupiter.html" style="flex:1"><img src="../images/ufo-right.svg" alt="Go to the next place" style="width:100%; height:auto; display:block;"></a></div>
 </body>
 </html>

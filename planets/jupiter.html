@@ -3,30 +3,35 @@
 <head>
   <meta charset="utf-8">
   <title>Jupiter</title>
+  <link rel="stylesheet" href="../css/style.css">
   <style>
-    body {
-      background-color: black;
-      background-image:
-        radial-gradient(1px 1px at 25px 40px, white, transparent),
-        radial-gradient(1px 1px at 120px 90px, white, transparent),
-        radial-gradient(2px 2px at 200px 150px, #cfe8ff, transparent),
-        radial-gradient(1px 1px at 90px 200px, white, transparent),
-        radial-gradient(1px 1px at 160px 30px, #fff3c4, transparent),
-        radial-gradient(1px 1px at 300px 120px, white, transparent);
-      background-repeat: repeat;
-      background-size: 350px 350px;
-    }
+    :root { --bg: #1f1208; --accent: #e0a96d; --font: Palatino, 'Palatino Linotype', serif; }
+    .planet { background: radial-gradient(38px 22px at 62% 66%, #b3361b 55%, transparent), repeating-linear-gradient(180deg, #d9a066 0 18px, #b97a45 18px 30px, #ecd2a8 30px 42px, #a8683a 42px 52px); }
   </style>
 </head>
 <body>
-  <p style="color: white; font-size: 40px;">Its Jupiter! The biggest of them all.</p>
-  <img src="../images/jupiter.jpg" alt="Jupiter">
+  <nav><a href="../index.html">Home</a> <a href="SUN.html">Sun</a> <a href="mercury.html">Mercury</a> <a href="venus.html">Venus</a> <a href="earth.html">Earth</a> <a href="moon.html">Moon</a> <a href="mars.html">Mars</a> <a href="jupiter.html">Jupiter</a> <a href="saturn.html">Saturn</a> <a href="uranus.html">Uranus</a> <a href="neptune.html">Neptune</a></nav>
+  <h1>Its Jupiter! The biggest of them all.</h1>
+  <div class="planet" role="img" aria-label="Jupiter with its Great Red Spot"></div>
+  <p class="t" style="text-align: center;">How much would you weigh on Jupiter?</p>
+  <div style="text-align: center;"><input id="w" type="number" placeholder="Weight in lbs"> <button onclick="findWeight()">Calculate</button>
+  <p class="t" id="result"></p></div>
 
-  <p style="color: white; font-size: 40px;">Jupiter is the largest planet in the Solar System, a giant ball of gas more than twice as massive as all the other planets combined. Its Great Red Spot is a storm bigger than Earth that has been raging for centuries.</p>
+  <p class="t">Jupiter is the largest planet in the Solar System, a giant ball of gas more than twice as massive as all the other planets combined. Its Great Red Spot is a storm bigger than Earth that has been raging for centuries.</p>
+  <h2>Quick facts</h2>
+  <ul class="facts"><li>Jupiter is about 86,900 miles (139,800 km) across, and about 1,300 Earths could fit inside.</li><li>It is about 484 million miles from the Sun.</li><li>One day is just under 10 hours, and one year is almost 12 Earth years.</li><li>It has more than 90 known moons.</li><li>The cloud tops are about -234°F (-145°C).</li></ul>
 
-  <p style="margin-bottom: 3000px; color: white; font-size: 40px;">Scroll down about 400 million miles to reach Saturn...</p>
+  <script>
+    // Weight calculator: Jupiter's gravity is about 2.53 times Earth's.
+    function findWeight() {
+      const earthWeight = document.getElementById('w').value;
+      document.getElementById('result').textContent = `You would weigh ${(earthWeight * 2.53).toFixed(1)} lbs on Jupiter!`;
+    }
+  </script>
 
-  <p style="color: white; font-size: 40px;">Okay lets hyperdrive! Into the UFO!!</p>
+  <p class="t" style="margin-bottom: 3000px;">Scroll down about 400 million miles to reach Saturn...</p>
+
+  <p class="t">Okay lets hyperdrive! Into the UFO!!</p>
   <div style="display:flex; max-width:760px; margin:0 auto;"><a href="mars.html" style="flex:1"><img src="../images/ufo-left.svg" alt="Go back" style="width:100%; height:auto; display:block;"></a><a href="saturn.html" style="flex:1"><img src="../images/ufo-right.svg" alt="Go to the next place" style="width:100%; height:auto; display:block;"></a></div>
 </body>
 </html>

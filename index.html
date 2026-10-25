@@ -2,26 +2,33 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title style="color: white;">Solar System Page</title>
+  <title>Solar System Page</title>
+  <link rel="stylesheet" href="css/style.css">
   <style>
-    body {
-      background-color: black;
-      background-image:
-        radial-gradient(1px 1px at 25px 40px, white, transparent),
-        radial-gradient(1px 1px at 120px 90px, white, transparent),
-        radial-gradient(2px 2px at 200px 150px, #cfe8ff, transparent),
-        radial-gradient(1px 1px at 90px 200px, white, transparent),
-        radial-gradient(1px 1px at 160px 30px, #fff3c4, transparent),
-        radial-gradient(1px 1px at 300px 120px, white, transparent);
-      background-repeat: repeat;
-      background-size: 350px 350px;
-    }
+    :root { --bg: #000000; --accent: #9ecbff; --font: 'Trebuchet MS', sans-serif; }
   </style>  
 </head>
 <body>
-  <p style="color: white; font-size: 40px; text-align: center;">Welcome to the Solar System page! Scroll down to explore!</p>
+  <nav><a href="index.html">Home</a> <a href="planets/SUN.html">Sun</a> <a href="planets/mercury.html">Mercury</a> <a href="planets/venus.html">Venus</a> <a href="planets/earth.html">Earth</a> <a href="planets/moon.html">Moon</a> <a href="planets/mars.html">Mars</a> <a href="planets/jupiter.html">Jupiter</a> <a href="planets/saturn.html">Saturn</a> <a href="planets/uranus.html">Uranus</a> <a href="planets/neptune.html">Neptune</a></nav>
+  <h1>Welcome to the Solar System page! Scroll down to explore!</h1>
   <img src="images/solarsystem.webp" alt="Solar System" style="display: block; max-width: 1500px; height: 1000px; margin-left: auto; margin-right: auto;">
+  <h2>Solar System facts</h2>
+  <ul class="facts"><li>The Solar System formed about 4.6 billion years ago.</li><li>It has 8 planets: 4 rocky inner planets and 4 giant outer planets.</li><li>The Sun holds about 99.8% of all the mass in the Solar System.</li><li>Light from the Sun takes about 8 minutes to reach Earth.</li><li>Jupiter is more than twice as massive as all the other planets combined.</li></ul>
+  <div style="text-align: center;"><button onclick="toggleMore()">Read more / Hide</button></div>
+  <ul class="facts" id="more" hidden>
+    <li>Neptune takes about 165 Earth years to go around the Sun once.</li>
+    <li>Only Mercury and Venus have no moons.</li>
+    <li>Voyager 1 is the farthest human-made object from Earth.</li>
+  </ul>
+  <script>
+    // Read more button: shows or hides the extra facts list above.
+    function toggleMore() {
+      const more = document.getElementById('more');
+      more.hidden = !more.hidden;
+    }
+  </script>
   <p style="color: white; font-size: 40px; text-align: center;">Lets start with the Sun! Click on the Sun to learn more about it:</p>
 
 <a href="planets/SUN.html"> <img src="images/sunimage.jpeg" alt="Sun" style="display: block; margin-left: auto; margin-right: auto;"></a>
-
+</body>
+</html>

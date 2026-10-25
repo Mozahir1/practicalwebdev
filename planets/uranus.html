@@ -3,30 +3,39 @@
 <head>
   <meta charset="utf-8">
   <title>Uranus</title>
+  <link rel="stylesheet" href="../css/style.css">
   <style>
-    body {
-      background-color: black;
-      background-image:
-        radial-gradient(1px 1px at 25px 40px, white, transparent),
-        radial-gradient(1px 1px at 120px 90px, white, transparent),
-        radial-gradient(2px 2px at 200px 150px, #cfe8ff, transparent),
-        radial-gradient(1px 1px at 90px 200px, white, transparent),
-        radial-gradient(1px 1px at 160px 30px, #fff3c4, transparent),
-        radial-gradient(1px 1px at 300px 120px, white, transparent);
-      background-repeat: repeat;
-      background-size: 350px 350px;
-    }
+    :root { --bg: #00232b; --accent: #7fe3e0; --font: 'Trebuchet MS', sans-serif; }
+    .tilter { position: relative; width: 220px; height: 220px; margin: 110px auto; transition: transform 1s; }
+    .tilter.tilted { transform: rotate(98deg); }
+    .tilter .planet { margin: 0; background: radial-gradient(circle at 35% 30%, #b8f4f0, #7fe3e0 60%, #3a8f93); }
+    .ring { border: 6px solid rgba(200, 255, 255, 0.6); }
+    .axis { position: absolute; top: -40px; width: 100%; text-align: center; color: white; font-size: 24px; }
   </style>
 </head>
 <body>
-  <p style="color: white; font-size: 40px;">Its Uranus! The tilted one.</p>
-  <img src="../images/uranus.jpg" alt="Uranus">
+  <nav><a href="../index.html">Home</a> <a href="SUN.html">Sun</a> <a href="mercury.html">Mercury</a> <a href="venus.html">Venus</a> <a href="earth.html">Earth</a> <a href="moon.html">Moon</a> <a href="mars.html">Mars</a> <a href="jupiter.html">Jupiter</a> <a href="saturn.html">Saturn</a> <a href="uranus.html">Uranus</a> <a href="neptune.html">Neptune</a></nav>
+  <h1>Its Uranus! The tilted one.</h1>
+  <div class="tilter" id="tilter">
+    <div class="axis">&uarr; North</div>
+    <div class="planet" role="img" aria-label="Uranus with its thin rings"><div class="ring"></div></div>
+  </div>
+  <div style="text-align: center;"><button onclick="tiltPlanet()">Tilt Uranus</button></div>
 
-  <p style="color: white; font-size: 40px;">Uranus is the seventh planet from the Sun, an ice giant with a pale blue-green color from the methane in its atmosphere. It is tipped over on its side, so it basically rolls around the Sun instead of spinning upright.</p>
+  <p class="t">Uranus is the seventh planet from the Sun, an ice giant with a pale blue-green color from the methane in its atmosphere. It is tipped over on its side, so it basically rolls around the Sun instead of spinning upright.</p>
+  <h2>Quick facts</h2>
+  <ul class="facts"><li>Uranus is about 31,500 miles (50,700 km) across, about 4 Earths wide.</li><li>It is about 1.8 billion miles from the Sun.</li><li>One day is about 17 hours, and one year is 84 Earth years.</li><li>Its axis is tilted about 98 degrees.</li><li>It has about 28 known moons, and its atmosphere reaches about -371°F (-224°C).</li></ul>
 
-  <p style="margin-bottom: 3000px; color: white; font-size: 40px;">Scroll down about 1 billion miles to reach Neptune...</p>
+  <script>
+    // Tilt button: rotates Uranus between upright and its real tilt (about 98 degrees).
+    function tiltPlanet() {
+      document.getElementById('tilter').classList.toggle('tilted');
+    }
+  </script>
 
-  <p style="color: white; font-size: 40px;">Okay lets hyperdrive! Into the UFO!!</p>
+  <p class="t" style="margin-bottom: 3000px;">Scroll down about 1 billion miles to reach Neptune...</p>
+
+  <p class="t">Okay lets hyperdrive! Into the UFO!!</p>
   <div style="display:flex; max-width:760px; margin:0 auto;"><a href="saturn.html" style="flex:1"><img src="../images/ufo-left.svg" alt="Go back" style="width:100%; height:auto; display:block;"></a><a href="neptune.html" style="flex:1"><img src="../images/ufo-right.svg" alt="Go to the next place" style="width:100%; height:auto; display:block;"></a></div>
 </body>
 </html>

@@ -1,0 +1,45 @@
+/* Shared styles for every page. Each page sets its own colors and font in :root. */
+:root { --bg: #000; --accent: #fff; --font: Georgia, serif; }
+
+body {
+  margin: 0;
+  padding: 0 16px 40px;
+  font-family: var(--font);
+  background-color: var(--bg);
+  background-image:
+    radial-gradient(1px 1px at 25px 40px, white, transparent),
+    radial-gradient(1px 1px at 120px 90px, white, transparent),
+    radial-gradient(2px 2px at 200px 150px, #cfe8ff, transparent),
+    radial-gradient(1px 1px at 90px 200px, white, transparent),
+    radial-gradient(1px 1px at 160px 30px, #fff3c4, transparent),
+    radial-gradient(1px 1px at 300px 120px, white, transparent);
+  background-size: 350px 350px;
+}
+
+/* navigation bar */
+nav {
+  position: sticky; top: 0; z-index: 10;
+  display: flex; flex-wrap: wrap; justify-content: center; gap: 6px 18px;
+  margin: 0 -16px 10px; padding: 10px;
+  background: rgba(0, 0, 0, 0.85); border-bottom: 2px solid var(--accent);
+}
+nav a { color: var(--accent); text-decoration: none; font-size: 18px; }
+nav a:hover { text-decoration: underline; }
+
+h1 { color: var(--accent); font-size: 40px; text-align: center; }
+h2 { color: var(--accent); text-align: center; }
+.t { color: white; font-size: 40px; }
+.facts { color: white; font-size: 28px; max-width: 900px; margin: 0 auto 30px; line-height: 1.5; }
+
+/* CSS-drawn planet; each page sets its own background */
+.planet {
+  position: relative; width: 220px; height: 220px; margin: 30px auto; border-radius: 50%;
+  box-shadow: inset -35px -25px 60px rgba(0, 0, 0, 0.7);
+}
+.ring {
+  position: absolute; width: 340px; height: 340px; left: -60px; top: -60px;
+  border: 16px solid rgba(220, 190, 120, 0.7); border-radius: 50%;
+  transform: rotateX(75deg);
+}
+button { font-size: 18px; padding: 8px 16px; margin: 6px; cursor: pointer; }
+input { font-size: 18px; padding: 6px; }

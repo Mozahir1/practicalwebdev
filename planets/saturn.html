@@ -3,30 +3,33 @@
 <head>
   <meta charset="utf-8">
   <title>Saturn</title>
+  <link rel="stylesheet" href="../css/style.css">
   <style>
-    body {
-      background-color: black;
-      background-image:
-        radial-gradient(1px 1px at 25px 40px, white, transparent),
-        radial-gradient(1px 1px at 120px 90px, white, transparent),
-        radial-gradient(2px 2px at 200px 150px, #cfe8ff, transparent),
-        radial-gradient(1px 1px at 90px 200px, white, transparent),
-        radial-gradient(1px 1px at 160px 30px, #fff3c4, transparent),
-        radial-gradient(1px 1px at 300px 120px, white, transparent);
-      background-repeat: repeat;
-      background-size: 350px 350px;
-    }
+    :root { --bg: #1d1807; --accent: #e6d08a; --font: Palatino, 'Palatino Linotype', serif; }
+    .planet { background: repeating-linear-gradient(180deg, #e6d08a 0 14px, #caa95e 14px 24px, #f1e2b0 24px 36px); margin: 90px auto; }
+    .ring { transform: rotateX(75deg); }
   </style>
 </head>
 <body>
-  <p style="color: white; font-size: 40px;">Its Saturn! Check out those rings.</p>
-  <img src="../images/saturn.jpg" alt="Saturn">
+  <nav><a href="../index.html">Home</a> <a href="SUN.html">Sun</a> <a href="mercury.html">Mercury</a> <a href="venus.html">Venus</a> <a href="earth.html">Earth</a> <a href="moon.html">Moon</a> <a href="mars.html">Mars</a> <a href="jupiter.html">Jupiter</a> <a href="saturn.html">Saturn</a> <a href="uranus.html">Uranus</a> <a href="neptune.html">Neptune</a></nav>
+  <h1>Its Saturn! Check out those rings.</h1>
+  <div class="planet" role="img" aria-label="Saturn with its rings"><div class="ring" id="ring"></div></div>
+  <div style="text-align: center;"><p class="t">Tilt the rings:</p><input type="range" min="0" max="90" value="75" oninput="tiltRing(this.value)"></div>
 
-  <p style="color: white; font-size: 40px;">Saturn is the sixth planet from the Sun and famous for its stunning rings, made of countless chunks of ice and rock. It is a gas giant so light that it would float in water, if you could find a bathtub big enough.</p>
+  <p class="t">Saturn is the sixth planet from the Sun and famous for its stunning rings, made of countless chunks of ice and rock. It is a gas giant so light that it would float in water, if you could find a bathtub big enough.</p>
+  <h2>Quick facts</h2>
+  <ul class="facts"><li>Saturn is about 72,400 miles (116,500 km) across, about 9 Earths wide.</li><li>It is about 886 million miles from the Sun.</li><li>One day is about 10.7 hours, and one year is about 29 Earth years.</li><li>It has more than 140 known moons, and the biggest is Titan.</li><li>Its rings are made of ice and rock but are very thin, often only about 30 feet thick.</li></ul>
 
-  <p style="margin-bottom: 3000px; color: white; font-size: 40px;">Scroll down about 900 million miles to reach Uranus...</p>
+  <script>
+    // Ring slider: rotates the ring from face-on (0) to edge-on (90).
+    function tiltRing(degrees) {
+      document.getElementById('ring').style.transform = `rotateX(${degrees}deg)`;
+    }
+  </script>
 
-  <p style="color: white; font-size: 40px;">Okay lets hyperdrive! Into the UFO!!</p>
+  <p class="t" style="margin-bottom: 3000px;">Scroll down about 900 million miles to reach Uranus...</p>
+
+  <p class="t">Okay lets hyperdrive! Into the UFO!!</p>
   <div style="display:flex; max-width:760px; margin:0 auto;"><a href="jupiter.html" style="flex:1"><img src="../images/ufo-left.svg" alt="Go back" style="width:100%; height:auto; display:block;"></a><a href="uranus.html" style="flex:1"><img src="../images/ufo-right.svg" alt="Go to the next place" style="width:100%; height:auto; display:block;"></a></div>
 </body>
 </html>

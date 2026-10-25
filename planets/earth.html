@@ -3,43 +3,41 @@
 <head>
   <meta charset="utf-8">
   <title>Earth</title>
+  <link rel="stylesheet" href="../css/style.css">
   <style>
-    body {
-      background-color: black;
-      background-image:
-        radial-gradient(1px 1px at 25px 40px, white, transparent),
-        radial-gradient(1px 1px at 120px 90px, white, transparent),
-        radial-gradient(2px 2px at 200px 150px, #cfe8ff, transparent),
-        radial-gradient(1px 1px at 90px 200px, white, transparent),
-        radial-gradient(1px 1px at 160px 30px, #fff3c4, transparent),
-        radial-gradient(1px 1px at 300px 120px, white, transparent);
-      background-repeat: repeat;
-      background-size: 350px 350px;
-    }
+    :root { --bg: #00122e; --accent: #4fc3f7; --font: 'Trebuchet MS', sans-serif; }
+    .orbit { position: relative; width: 380px; height: 380px; margin: 20px auto; border: 2px dashed rgba(255,255,255,0.3); border-radius: 50%; box-sizing: border-box; }
+    .orbit img { position: absolute; left: 100px; top: 100px; width: 180px; height: 180px; border-radius: 50%; object-fit: cover; }
+    .arm { position: absolute; inset: 0; animation: orbit 6s linear infinite; animation-play-state: paused; }
+    .running .arm { animation-play-state: running; }
+    .arm span { position: absolute; left: 173px; top: -16px; width: 34px; height: 34px; border-radius: 50%; background: radial-gradient(circle at 35% 30%, #eee, #999); }
+    @keyframes orbit { to { transform: rotate(360deg); } }
   </style>
 </head>
 <body>
-  <p style="color: white; font-size: 40px;">Its Earth! Home sweet home.</p>
-  <img src="../images/earth.jpg" alt="Earth">
+  <nav><a href="../index.html">Home</a> <a href="SUN.html">Sun</a> <a href="mercury.html">Mercury</a> <a href="venus.html">Venus</a> <a href="earth.html">Earth</a> <a href="moon.html">Moon</a> <a href="mars.html">Mars</a> <a href="jupiter.html">Jupiter</a> <a href="saturn.html">Saturn</a> <a href="uranus.html">Uranus</a> <a href="neptune.html">Neptune</a></nav>
+  <h1>Its Earth! Home sweet home.</h1>
+  <div class="orbit" id="orbit">
+    <img src="../images/earth.jpg" alt="Earth">
+    <div class="arm"><span role="img" aria-label="The Moon"></span></div>
+  </div>
+  <div style="text-align: center;"><button onclick="toggleOrbit()">Start / Stop the Moon's orbit</button></div>
 
-  <p style="color: white; font-size: 40px;">Earth is the third planet from the Sun and the only place we know of with life. It has liquid water covering most of its surface and an atmosphere that protects us and keeps us breathing.</p>
-  <p style="color: white; font-size: 40px;">I wonder what the weathers like today!</p>
-  <button onclick="findweather()">Find weather</button>
+  <p class="t">Earth is the third planet from the Sun and the only place we know of with life. It has liquid water covering most of its surface and an atmosphere that protects us and keeps us breathing.</p>
+  <h2>Quick facts</h2>
+  <ul class="facts"><li>Earth is about 7,900 miles (12,700 km) across.</li><li>It is about 93 million miles from the Sun.</li><li>One day is 24 hours and one year is about 365 days.</li><li>About 71% of its surface is covered in water.</li><li>It has 1 moon, and the average temperature is about 59°F (15°C).</li></ul>
+
   <script>
-    // Weather calculator: runs when the button above is clicked.
-    function findweather() {
-      //lets see what the weather is like today
-      //enter your location and it will calculate the weather
-      const location = prompt("Enter your location:");
-      // This is a placeholder - in a real application, you would integrate with a weather API
-      alert(`The weather in ${location} is currently sunny with a temperature of 75°F.`);
+    // Orbit button: the CSS animation (.arm) moves the Moon around Earth.
+    // Toggling the "running" class on the orbit box plays or pauses it.
+    function toggleOrbit() {
+      document.getElementById('orbit').classList.toggle('running');
     }
   </script>
-  <p style="margin-bottom: 1000px; color: white; font-size: 40px;">Scroll down about 239,000 miles to reach the Moon...</p>
-  <p style="color: white; font-size: 40px;">Okay lets hyperdrive! Into the UFO!!</p>
-  <p style="margin-bottom: 1000px; color: white; font-size: 40px;">Scroll down about 239,000 miles to reach the Moon...</p>
 
-  <p style="color: white; font-size: 40px;">Okay lets hyperdrive! Into the UFO!!</p>
+  <p class="t" style="margin-bottom: 1000px;">Scroll down about 239,000 miles to reach the Moon...</p>
+
+  <p class="t">Okay lets hyperdrive! Into the UFO!!</p>
   <div style="display:flex; max-width:760px; margin:0 auto;"><a href="venus.html" style="flex:1"><img src="../images/ufo-left.svg" alt="Go back" style="width:100%; height:auto; display:block;"></a><a href="moon.html" style="flex:1"><img src="../images/ufo-right.svg" alt="Go to the next place" style="width:100%; height:auto; display:block;"></a></div>
 </body>
 </html>
