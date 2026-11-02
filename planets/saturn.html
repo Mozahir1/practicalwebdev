@@ -7,23 +7,26 @@
   <style>
     :root { --bg: #1d1807; --accent: #e6d08a; --font: Palatino, 'Palatino Linotype', serif; }
     .planet { background: repeating-linear-gradient(180deg, #e6d08a 0 14px, #caa95e 14px 24px, #f1e2b0 24px 36px); margin: 90px auto; }
-    .ring { transform: rotateX(75deg); }
   </style>
 </head>
 <body>
   <nav><a href="../index.html">Home</a> <a href="SUN.html">Sun</a> <a href="mercury.html">Mercury</a> <a href="venus.html">Venus</a> <a href="earth.html">Earth</a> <a href="moon.html">Moon</a> <a href="mars.html">Mars</a> <a href="jupiter.html">Jupiter</a> <a href="saturn.html">Saturn</a> <a href="uranus.html">Uranus</a> <a href="neptune.html">Neptune</a></nav>
   <h1>Its Saturn! Check out those rings.</h1>
-  <div class="planet" role="img" aria-label="Saturn with its rings"><div class="ring" id="ring"></div></div>
-  <div style="text-align: center;"><p class="t">Tilt the rings:</p><input type="range" min="0" max="90" value="75" oninput="tiltRing(this.value)"></div>
+  <div class="planet" role="img" aria-label="Saturn with its rings"><div class="ring" id="ring" style="opacity: 0;"></div></div>
+  <div style="text-align: center;"><p class="t">Watch the rings form: <span id="years">0</span> million years</p>
+  <input type="range" min="0" max="100" value="0" oninput="growRing(this.value)"></div>
 
   <p class="t">Saturn is the sixth planet from the Sun and famous for its stunning rings, made of countless chunks of ice and rock. It is a gas giant so light that it would float in water, if you could find a bathtub big enough.</p>
   <h2>Quick facts</h2>
   <ul class="facts"><li>Saturn is about 72,400 miles (116,500 km) across, about 9 Earths wide.</li><li>It is about 886 million miles from the Sun.</li><li>One day is about 10.7 hours, and one year is about 29 Earth years.</li><li>It has more than 140 known moons, and the biggest is Titan.</li><li>Its rings are made of ice and rock but are very thin, often only about 30 feet thick.</li></ul>
 
   <script>
-    // Ring slider: rotates the ring from face-on (0) to edge-on (90).
-    function tiltRing(degrees) {
-      document.getElementById('ring').style.transform = `rotateX(${degrees}deg)`;
+    // Ring slider: the longer the time, the thicker and brighter the ring gets.
+    function growRing(millions) {
+      const ring = document.getElementById('ring');
+      ring.style.opacity = millions / 100;
+      ring.style.borderWidth = (2 + millions * 0.14) + 'px';
+      document.getElementById('years').textContent = millions;
     }
   </script>
 
