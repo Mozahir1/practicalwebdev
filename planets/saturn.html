@@ -12,27 +12,31 @@
 <body>
   <nav><a href="../index.html">Home</a> <a href="SUN.html">Sun</a> <a href="mercury.html">Mercury</a> <a href="venus.html">Venus</a> <a href="earth.html">Earth</a> <a href="moon.html">Moon</a> <a href="mars.html">Mars</a> <a href="jupiter.html">Jupiter</a> <a href="saturn.html">Saturn</a> <a href="uranus.html">Uranus</a> <a href="neptune.html">Neptune</a></nav>
   <h1>Its Saturn! Check out those rings.</h1>
-  <div class="planet" role="img" aria-label="Saturn with its rings"><div class="ring" id="ring" style="opacity: 0;"></div></div>
-  <div style="text-align: center;"><p class="t">Watch the rings form: <span id="years">0</span> million years</p>
-  <input type="range" min="0" max="100" value="0" oninput="growRing(this.value)"></div>
+  <div class="planet" role="img" aria-label="Saturn with its rings"><div class="ring" id="ring"></div></div>
+  <div style="text-align: center;"><p class="t">Watch the rings form and disappear: <span id="when">today</span></p>
+  <p class="t">Scientists think the rings may be only about 100 million years old, and "ring rain" could wipe them out in about 300 million years.</p>
+  <input type="range" min="-100" max="300" value="0" oninput="changeRing(this.value)"></div>
 
   <p class="t">Saturn is the sixth planet from the Sun and famous for its stunning rings, made of countless chunks of ice and rock. It is a gas giant so light that it would float in water, if you could find a bathtub big enough.</p>
   <h2>Quick facts</h2>
-  <ul class="facts"><li>Saturn is about 72,400 miles (116,500 km) across, about 9 Earths wide.</li><li>It is about 886 million miles from the Sun.</li><li>One day is about 10.7 hours, and one year is about 29 Earth years.</li><li>It has more than 140 known moons, and the biggest is Titan.</li><li>Its rings are made of ice and rock but are very thin, often only about 30 feet thick.</li></ul>
+  <ul class="facts"><li>Saturn is about 72,400 miles (116,500 km) across, about 9 Earths wide.</li><li>It is about 886 million miles from the Sun.</li><li>One day is about 10.7 hours, and one year is about 29 Earth years.</li><li>It has more than 140 known moons, and the biggest is Titan.</li><li>Its rings are very thin, often only about 30 feet thick.</li></ul>
 
   <script>
-    // Ring slider: the longer the time, the thicker and brighter the ring gets.
-    function growRing(millions) {
+    // Ring slider: 0 is today. Negative numbers are the past (the rings may be only ~100 million
+    // years old) and positive numbers are the future (they could be gone in ~300 million years).
+    function changeRing(millions) {
+      millions = Number(millions);
+      // 0 = no ring, 1 = full ring
+      const amount = millions < 0 ? 1 + millions / 100 : 1 - millions / 300;
       const ring = document.getElementById('ring');
-      ring.style.opacity = millions / 100;
-      ring.style.borderWidth = (2 + millions * 0.14) + 'px';
-      document.getElementById('years').textContent = millions;
+      ring.style.opacity = amount;
+      ring.style.borderWidth = (16 * amount) + 'px';
+      document.getElementById('when').textContent =
+        millions < 0 ? `${-millions} million years ago` : millions === 0 ? 'today' : `in ${millions} million years`;
     }
   </script>
 
-  <p class="t" style="margin-bottom: 3000px;">Scroll down about 900 million miles to reach Uranus...</p>
-
-  <p class="t">Okay lets hyperdrive! Into the UFO!!</p>
+  <p class="t">Okay lets hyperdrive! Choose if you want to go back or forward.</p>
   <div style="display:flex; max-width:760px; margin:0 auto;"><a href="jupiter.html" style="flex:1"><img src="../images/ufo-left.svg" alt="Go back" style="width:100%; height:auto; display:block;"></a><a href="uranus.html" style="flex:1"><img src="../images/ufo-right.svg" alt="Go to the next place" style="width:100%; height:auto; display:block;"></a></div>
 </body>
 </html>
