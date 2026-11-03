@@ -12,23 +12,29 @@
 <body>
   <nav><a href="../index.html">Home</a> <a href="SUN.html">Sun</a> <a href="mercury.html">Mercury</a> <a href="venus.html">Venus</a> <a href="earth.html">Earth</a> <a href="moon.html">Moon</a> <a href="mars.html">Mars</a> <a href="jupiter.html">Jupiter</a> <a href="saturn.html">Saturn</a> <a href="uranus.html">Uranus</a> <a href="neptune.html">Neptune</a></nav>
   <h1>Its Mars! The red planet.</h1>
-  <img class="pic" src="../images/placeholder.svg" alt="Mars">
-  <div style="text-align: center;"><button onclick="openFacts()">Mars fun facts</button></div>
-  <dialog id="facts">
-    <p>Olympus Mons is about 16 miles (25 km) high, nearly three times taller than Mount Everest.</p>
-    <p>Valles Marineris is a canyon about 2,500 miles long, as long as the United States is wide.</p>
-    <p>Mars has giant dust storms that can cover the whole planet.</p>
-    <button onclick="closeFacts()">Close</button>
-  </dialog>
+  <img class="pic" src="../images/mars.jpeg" alt="Mars">
 
   <p class="t">Mars is the fourth planet from the Sun. Its rusty red color comes from iron oxide in the soil. It has the tallest volcano and the biggest canyon in the Solar System, and we have sent rovers there to explore.</p>
   <h2>Quick facts</h2>
   <ul class="facts"><li>Mars is about 4,200 miles (6,800 km) across, about half of Earth's width.</li><li>It is about 142 million miles from the Sun.</li><li>One day is about 24 hours 37 minutes and one year is 687 Earth days.</li><li>It has 2 small moons, Phobos and Deimos.</li><li>The average temperature is about -80°F (-60°C).</li></ul>
 
+ 
+  <p class="t">Click the button to take a look at the surface of Mars!</p>
+  <div style="text-align: center;">
+    <button onclick="showRover()">Show Surface</button>
+  </div>
+  <dialog id="roverDialog">
+    <img src="../images/rover.jpg" alt="Mars Rover" style="width: 100%; height: auto;">
+    <p>Its the Mars Rover!</p>
+    <button onclick="closeRover()">Close</button>
+  </dialog>
   <script>
-    // Fun facts pop-up: opens and closes the <dialog> element above.
-    function openFacts() { document.getElementById('facts').showModal(); }
-    function closeFacts() { document.getElementById('facts').close(); }
+    function showRover() {
+      document.getElementById('roverDialog').showModal();
+    }
+    function closeRover() {
+      document.getElementById('roverDialog').close();
+    }
   </script>
 
   <p class="t">Okay lets hyperdrive! Choose if you want to go back or forward.</p>

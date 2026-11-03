@@ -11,16 +11,21 @@
 <body>
   <nav><a href="../index.html">Home</a> <a href="SUN.html">Sun</a> <a href="mercury.html">Mercury</a> <a href="venus.html">Venus</a> <a href="earth.html">Earth</a> <a href="moon.html">Moon</a> <a href="mars.html">Mars</a> <a href="jupiter.html">Jupiter</a> <a href="saturn.html">Saturn</a> <a href="uranus.html">Uranus</a> <a href="neptune.html">Neptune</a></nav>
   <h1>Its the Moon!</h1>
-  <img class="pic" src="../images/placeholder.svg" alt="The Moon">
+  <img src="../images/full moon.jpeg" alt="full Moon" class="pic">
+  <img src="../images/new moon.jpeg" alt="new Moon" class="pic">
+  <img src="../images/waning gibbous.jpeg" alt="waning Gibbous" class="pic">
   <div style="text-align: center;">
-    <p class="t">Pick a moon phase:</p>
-    <button onclick="showPhase(0)" title="New Moon">&#127761;</button>
-    <button onclick="showPhase(1)" title="First Quarter">&#127763;</button>
-    <button onclick="showPhase(2)" title="Full Moon">&#127765;</button>
-    <button onclick="showPhase(3)" title="Last Quarter">&#127767;</button>
-    <p class="t" id="phase"></p>
+    <img src="../images/waxing quarter.jpeg" alt="waxing quarter" img style="width: 300px; height: auto;" class="pic">
   </div>
-
+  <p>click the buttons below to see different moon phases:</p>
+  // on button click show the corresponding picture and description of the moon phase
+  <div style="text-align: center;">
+    <button onclick="showPhase(0)">Full Moon</button>
+    <button onclick="showPhase(1)">New Moon</button>
+    <button onclick="showPhase(2)">Waxing Quarter</button>
+    <button onclick="showPhase(3)">Waning Gibbous</button>
+  </div>
+  <p id="phase" class="t" style="text-align: center;">Click
   <p class="t">The Moon is Earth's only natural satellite. It is covered in craters and dust, and it is the only other world humans have walked on.</p>
   <h2>Quick facts</h2>
   <ul class="facts"><li>The Moon is about 2,159 miles (3,475 km) across, roughly a quarter of Earth's width.</li><li>It is about 239,000 miles from Earth.</li><li>It orbits Earth every 27 days, and its phases repeat every 29.5 days.</li><li>Its gravity is about 1/6 of Earth's.</li><li>Temperatures swing from about 250°F (120°C) to -208°F (-130°C).</li></ul>
@@ -28,13 +33,25 @@
   <script>
     // Phase buttons: each button shows what that phase of the Moon means.
     const phases = [
-      'New Moon: the Moon is between us and the Sun, so we cannot see its lit side.',
-      'First Quarter: half of the Moon is lit, and it is getting brighter each night.',
       'Full Moon: the whole side facing Earth is lit.',
-      'Last Quarter: half of the Moon is lit, and it is getting dimmer each night.'];
+      'New Moon: the Moon is between us and the Sun, so we cannot see its lit side.',
+      'Waxing Quarter: half of the Moon is lit, and it is getting brighter each night.',
+      'Waning Gibbous: half of the Moon is lit, and it is getting dimmer each night.'];
     function showPhase(i) {
       document.getElementById('phase').textContent = phases[i];
     }
+    // Show the first image and hide the others
+    const images = document.querySelectorAll('img.pic');
+    images.forEach((img, index) => {
+      img.style.display = index === 0 ? 'block' : 'none';
+    });
+    // Show the corresponding image when a button is clicked
+    function showPhase(i) {
+      images.forEach((img, index) => {
+        img.style.display = index === i ? 'block' : 'none';
+      });
+      document.getElementById('phase').textContent = phases[i];
+    } 
   </script>
 
   <p class="t">Okay lets hyperdrive! Choose if you want to go back or forward.</p>
